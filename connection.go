@@ -83,6 +83,8 @@ func GetField(v interface{}, connectionString, param string) (err error) {
 				var i int
 				i, err = strconv.Atoi(value)
 				*x = uint8(i)
+			case *float64:
+				*x, _ = strconv.ParseFloat(value, 32)
 			case *time.Duration:
 				var i int
 				if i, err = strconv.Atoi(value); err == nil {
