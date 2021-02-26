@@ -6,7 +6,6 @@ import (
 )
 
 func TestIn(t *testing.T) {
-
 	if In(1, 2, 3) {
 		t.Errorf("value: %v shouldn't be found", 1)
 	}
