@@ -3,8 +3,11 @@ package tools
 import "os"
 
 func FileExists(name string) bool {
-	_, err := os.Stat(name)
-	return !os.IsNotExist(err)
+	info, err := os.Stat(name)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
 }
 
 func CreateFile(name string) error {
